@@ -1,0 +1,34 @@
+* {
+    margin: 0; padding:0;
+}
+
+:root {
+    //
+    --light-shade: #F4F4EF;
+    --light-accent: #978E97;
+    --main-brand-color: #D47163;
+    --dark-accent: #95464C;
+    --dark-shade: #2D3343;
+}
+
+body {
+    width:100vw; height:100vh;
+    .wrapper {
+        width: 100%; height: 100%;
+        .update {
+            width: 100%; height: 50px;
+            display: grid;
+            place-items: center;
+            text-align: justify;
+            text-transform: capitalize;
+            background-color: var(--light-accent);
+            color: var(--light-shade);
+            user-select: none;
+
+            .update-date {
+                margin-right: 1vh;
+                color: var(--dark-shade);
+            }
+        }
+    }
+}
