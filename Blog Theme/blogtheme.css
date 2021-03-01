@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Libre+Barcode+39+Text&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/*https://codepen.io/kootoopas/pen/reyqg*/
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
 * {
   margin: 0;
   padding: 0;
@@ -9,16 +12,30 @@
   --main-brand-color: #D47163;
   --dark-accent: #95464C;
   --dark-shade: #2D3343;
+  --main-font: 'Inter', sans-serif;
+  --accent-font: 'Playfair Display', serif;
+  --credit-font: 'Libre Barcode 39 Text', cursive;
 }
 
 body {
   width: 100vw;
   height: 100vh;
+  font-family: var(--main-font);
+  overflow: hidden;
 }
 
 body .wrapper {
   width: 100%;
   height: 100%;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse .92s infinite;
+  /* Safari 4+ */
+  /* Fx 5+ */
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse .92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 body .wrapper .update {
@@ -40,5 +57,79 @@ body .wrapper .update {
 body .wrapper .update .update-date {
   margin-right: 1vh;
   color: var(--dark-shade);
+}
+
+body .wrapper .navbar {
+  margin: 0 2%;
+  width: 100;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+body .wrapper .navbar > a {
+  margin-right: 2%;
+  font-size: 1.2vw;
+  color: var(--dark-shade);
+}
+
+body .wrapper .navbar > a:hover {
+  color: var(--light-accent);
+}
+
+body .wrapper #home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .wrapper #home .blog-name {
+  height: 100%;
+  width: 25%;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: sideways;
+  letter-spacing: 0px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: var(--accent-font);
+  font-size: 6vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
 }
 /*# sourceMappingURL=blogtheme.css.map */
