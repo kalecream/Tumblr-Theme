@@ -1,0 +1,53 @@
+@use "./_colours.scss" as *;
+
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // border: 1px red solid;
+}
+
+body {
+    display: flex;
+    // overflow: hidden;
+}
+
+aside {
+    height: 100vh; width: 5vh;
+    background-color: $main-color;
+
+    ul {
+        height: 100%;
+        list-style-type: none;
+        display: grid;
+        justify-content: space-around;
+        
+        li {
+            
+            a {
+                position: relative;
+                color: $main-bg;
+
+                i {
+                    color: $main-bg;
+                }
+            }
+        }
+    }
+}
+
+.wrapper {
+    width: 95vh; height: 100vh;
+
+    background-color: $main-bg;
+    color: $main-text-color;
+
+    header {
+        padding: 5%;
+        font-family: $title-font;
+        font-size: 3vmin;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+}

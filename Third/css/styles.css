@@ -3,7 +3,6 @@
 * {
   margin: 0;
   padding: 0;
-  border: 0.5px solid red;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -23,6 +22,7 @@ html body {
 }
 
 html body .aside {
+  position: fixed;
   float: left;
   width: 2%;
   background-color: #2BB59C;
@@ -43,7 +43,7 @@ html body .aside ul li {
 }
 
 html body .aside ul li a {
-  font-size: 3vw;
+  font-size: 0.8vw;
   position: relative;
   color: #F4F6F5;
 }
@@ -198,5 +198,61 @@ html body .main .goals-grid .goal .goals-progress .goal-progress .progress progr
 html body .main .goals-grid .goal .goals-progress .goal-progress .progress progress[value]::-webkit-progress-value {
   background: #7ECFC2;
   border-radius: 50px;
+}
+
+html body #blog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+html body #blog .blog-panel {
+  margin-left: 2%;
+  width: 31%;
+  height: 100%;
+}
+
+html body #blog .blog-panel .askbox-container {
+  height: 70%;
+}
+
+html body #blog .blog-panel .tags-container {
+  height: 30%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+html body #blog .blog-panel .tags-container > a {
+  width: 250px;
+  height: 50px;
+  color: #2BB59C;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  border: 1px solid #8C9DA7;
+}
+
+html body #blog .posts-container {
+  width: 66vw;
+  height: 100vh;
+  padding: 5%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  overflow-y: scroll;
+}
+
+html body #blog .posts-container .post {
+  list-style-type: none;
+  width: 250px;
 }
 /*# sourceMappingURL=styles.css.map */

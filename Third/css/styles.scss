@@ -22,7 +22,7 @@ $nav-color-hover: #141414;
 
 * { 
     margin: 0; padding: 0;
-    border: 0.5px solid red;
+    // border: 0.5px solid red;
     box-sizing: border-box;
 }
 
@@ -39,6 +39,7 @@ html {
         font-family: $body-font;
         color: $main-text-color;
         .aside {
+            position: fixed;
             float: left;
             width: 2%; 
             background-color: $dark-shades;
@@ -53,7 +54,7 @@ html {
                 li {
                     place-self: center;
                     a {
-                        font-size: 3vw;
+                        font-size: 0.8vw;
                         position: relative;
                         color: $nav-color;
 
@@ -185,6 +186,53 @@ html {
                             }
                         }
                     }
+                }
+            }
+        }
+
+        #blog {
+            display: flex;
+            width: 100vw; height: 100vh;
+
+            .blog-panel {
+                margin-left: 2%;
+                width: 31%; height: 100%;
+
+                .askbox-container {
+                    height: 70%;
+
+                }
+
+                .tags-container {
+                    height: 30%;
+                    display: grid;
+                    grid-template-columns:  1fr 1fr;
+                    place-items: center;
+                    
+
+                    & > a {
+                        width:250px; height: 50px;
+                        color: $dark-shades;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        display: grid;
+                        place-items: center;
+                        border: 1px solid $dark-accent;
+                    }
+                }
+            }
+            
+
+            .posts-container {
+                width: 66vw;height: 100vh; padding: 5%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                overflow-y: scroll;
+
+                .post {
+                    list-style-type: none;
+                    width: 250px;
                 }
             }
         }
