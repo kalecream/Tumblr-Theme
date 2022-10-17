@@ -1,0 +1,255 @@
+<html>
+<head>
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Inter&family=Libre+Barcode+39+Text&family=Pinyon+Script&family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    {block:Description}
+    <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    <meta name="color:Background" content="#f8f8f8"/>
+    <meta name="color:PostBorder" content="#fff"/>
+    <meta name="color:BlockQuote" content="#fff"/>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+        }
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        h3 {
+            font-size: 1.17em;
+            font-weight: bold;
+            text-align: center;
+            font-family: 'Inter', cursive;
+            font-size: 2em;
+        }
+        h4 {
+            font-size: 1em;
+            font-weight: bold;
+        }
+        h5 {
+            font-size: .83em;
+            font-weight: bold;
+        }
+        h6 {
+            font-size: .67em;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1em;
+            font-weight: normal;
+        }
+        a {
+            color: #0087C8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img, .photoset {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        blockquote { 
+            width: 100%;
+            padding-left: 2em;
+            border-left: 1px solid {color:BlockQuote};
+            margin-block-start: 0em;
+            margin-inline-start: 0px;
+        }
+
+        #posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5em;
+            list-style-type: none;
+            padding: 0;
+        }
+        #posts li {
+            margin-bottom: 1em;
+        }
+        #posts li.post {
+            border: 1px solid  {color:PostBorder};
+            border-radius: 5px;
+            padding: 1em;
+        }
+        #posts li.post h3 {
+            margin-top: 0;
+        }
+        #posts li.post h3 a {
+            color: #000;
+        }
+        #posts li.post h3 a:hover {
+            text-decoration: none;
+        }
+        #posts li.post .caption {
+            font-size: .83em;
+            font-style: italic;
+        }
+        #posts li.post .caption a {
+            color: #0087C8;
+        }
+        #posts li.post .caption a:hover {
+            text-decoration: underline;
+        }
+        #posts li.post .source {
+            font-size: .83em;
+            font-style: italic;
+        }
+        #posts li.post .source a {
+            color: #0087C8;
+        }
+        #posts li.post .source a:hover {
+            text-decoration: underline;
+        }
+        #posts li.post .description {
+            font-size: .83em;
+            font-style: italic;
+        }
+        #posts li.post .description a {
+            color: #0087C8;
+        }
+        #posts li.post .description a:hover {
+            text-decoration: underline;
+        }
+        #posts li.post .link {
+            font-size: 1em;}
+
+        #blog-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        #description {
+            text-align: center;
+            font-size: .83em;
+        }
+
+        .wrapper {
+            background-color: {color:Background};
+            padding: 3em;
+            margin: 0;
+        }
+
+        .bio {
+            display: grid;
+            place-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <div class="bio">
+        <h1 id="blog-title">Journey to Grace</h1>
+
+
+        {block:Description}
+        <p id="description">{Description}</p>
+        {/block:Description}
+    </div>
+
+    <ol id="posts">
+        {block:Posts}{block:Text}
+        <li class="post text">
+            {block:Title}
+            <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}{Body}
+        </li>
+        {/block:Text}{block:Photo}
+        <li class="post photo">
+            <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
+
+            {block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+        {/block:Photo}{block:Panorama}
+        <li class="post panorama">
+            {LinkOpenTag}
+            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />
+            {LinkCloseTag}{block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+        {/block:Panorama}{block:Photoset}
+        <li class="post photoset">
+            {Photoset-500}{block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+        {/block:Photoset}{block:Quote}
+        <li class="post quote">
+            "{Quote}"
+
+            {block:Source}
+            <div class="source">{Source}</div>
+            {/block:Source}
+        </li>
+        {/block:Quote}{block:Link}
+        <li class="post link">
+            <a href="{URL}" class="link" {Target}>{Name}</a>
+
+            {block:Description}
+            <div class="description">{Description}</div>
+            {/block:Description}
+        </li>
+        {/block:Link}{block:Chat}
+        <li class="post chat">
+            {block:Title}
+            <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
+
+            <ul class="chat">
+                {block:Lines}
+                <li class="{Alt} user_{UserNumber}">
+                    {block:Label}
+                    <span class="label">{Label}</span>
+                    {/block:Label}{Line}
+                </li>
+                {/block:Lines}
+            </ul>
+        </li>
+        {/block:Chat}{block:Video}
+        <li class="post video">
+            {Video-500}{block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+        {/block:Video}{block:Audio}
+        <li class="post audio">
+            {AudioEmbed}{block:Caption}
+            <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </li>
+        {/block:Audio}{/block:Posts}
+    </ol>
+
+    <p id="footer">
+        {block:PreviousPage}
+        <a href="{PreviousPage}">&#171; Previous</a>
+        {/block:PreviousPage}{block:NextPage}
+        <a href="{NextPage}">Next &#187;</a>
+        {/block:NextPage}
+
+        <a href="/archive">Archive</a>
+    </p>
+</div>
+</body>
+
+</html>
