@@ -12,6 +12,7 @@
     <meta name="color:Background" content="#f8f8f8"/>
     <meta name="color:PostBorder" content="#fff"/>
     <meta name="color:BlockQuote" content="#fff"/>
+    <meta name="color:SideBarBorder" content="#fff"/>
     <style>
         * {
             box-sizing: border-box;
@@ -72,12 +73,46 @@
             margin-inline-start: 0px;
         }
 
+        .wrapper {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            background-color: {color:Background};
+            margin: 0;
+        }
+
+        .side-bar {
+            display: block;
+            border-right: 1px solid {color:SideBarBorder};
+            height: 75vh;
+            padding: 2%;
+        }
+
+        #blog-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3em;
+            margin: 0;
+            text-align: center;
+        }
+
+        #description {
+            text-align: center;
+            font-size: .83em;
+        }
+
+        #footer {
+            font-size: .87em;
+            text-align: center;
+            margin: 0;
+            position: fixed;
+            bottom: 5%;
+        }
+
         #posts {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 1.5em;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 500px));
+            gap: 2em;
             list-style-type: none;
-            padding: 0;
+            padding: 1em;
         }
         #posts li {
             margin-bottom: 1em;
@@ -86,6 +121,7 @@
             border: 1px solid  {color:PostBorder};
             border-radius: 5px;
             padding: 1em;
+            height: fit-content;
         }
         #posts li.post h3 {
             margin-top: 0;
@@ -128,40 +164,27 @@
         }
         #posts li.post .link {
             font-size: 1em;}
-
-        #blog-title {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 5em;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        #description {
-            text-align: center;
-            font-size: .83em;
-        }
-
-        .wrapper {
-            background-color: {color:Background};
-            padding: 3em;
-            margin: 0;
-        }
-
-        .bio {
-            display: grid;
-            place-items: center;
-        }
     </style>
 </head>
 <body>
     <div class="wrapper">
-    <div class="bio">
+    <div class="side-bar">
         <h1 id="blog-title">Journey to Grace</h1>
 
 
         {block:Description}
         <p id="description">{Description}</p>
         {/block:Description}
+
+        <p id="footer">
+            {block:PreviousPage}
+            <a href="{PreviousPage}">&#171; Previous</a>
+            {/block:PreviousPage}{block:NextPage}
+            <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+    
+            <a href="/archive">Archive</a>
+        </p>
     </div>
 
     <ol id="posts">
@@ -239,16 +262,6 @@
         </li>
         {/block:Audio}{/block:Posts}
     </ol>
-
-    <p id="footer">
-        {block:PreviousPage}
-        <a href="{PreviousPage}">&#171; Previous</a>
-        {/block:PreviousPage}{block:NextPage}
-        <a href="{NextPage}">Next &#187;</a>
-        {/block:NextPage}
-
-        <a href="/archive">Archive</a>
-    </p>
 </div>
 </body>
 
